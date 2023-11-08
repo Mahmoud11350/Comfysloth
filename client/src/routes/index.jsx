@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   About,
   Cart,
-  DashboardLayout,
   ErrorPage,
   HomeLayout,
   Landing,
@@ -13,6 +12,7 @@ import {
 } from "../pages";
 
 import { loader as featuredLoader } from "../pages/Landing";
+import { loader as productLoader } from "../pages/Product";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +33,7 @@ const router = createBrowserRouter([
       {
         path: "product/:id",
         element: <Product />,
+        loader: productLoader,
       },
       {
         path: "about",

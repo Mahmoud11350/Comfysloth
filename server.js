@@ -8,7 +8,13 @@ const app = express();
 // routes
 import productRoutes from "./routes/productRoutes.js";
 
+// middlewares
+import errorHandler from "./middlewares/errorHandler.js";
+
 app.use("/api/v1/products", productRoutes);
+
+// post middlewares
+app.use(errorHandler);
 
 const PORT = 5001;
 const start = async () => {
