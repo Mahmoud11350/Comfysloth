@@ -13,7 +13,7 @@ const About = () => {
             className=" w-[500px] h-[500px] rounded-lg"
           />
           <div>
-            <h2 className="text-2xl capitalize mb-8 font-bold tracking-widest relative after:absolute after:-bottom-4 after:w-[150px] after:h-[3px] after:content-[''] after:bg-mainColor after:left-0">
+            <h2 className="text-2xl capitalize mb-8 font-bold tracking-widest relative afterLine w-fit">
               our story
             </h2>
             <p className="mb-4 leading-8">

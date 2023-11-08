@@ -12,6 +12,8 @@ import {
   Register,
 } from "../pages";
 
+import { loader as featuredLoader } from "../pages/Landing";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +23,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
+        loader: featuredLoader,
       },
 
       {

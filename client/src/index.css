@@ -7,3 +7,12 @@
     @apply pt-20 pb-20;
   }
 }
+
+@layer components {
+  .afterLine {
+    @apply relative;
+  }
+  .afterLine::after {
+    @apply absolute -bottom-4 w-[150px] h-[3px] content-[''] bg-mainColor left-1/2 -translate-x-1/2;
+  }
+}
