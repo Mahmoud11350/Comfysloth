@@ -21,7 +21,6 @@ const Landing = () => {
       <FeaturedProducts featuredProducts={featuredProducts} />
       <CustomFurniture />
       <Contact />
-      <Footer />
     </>
   );
 };

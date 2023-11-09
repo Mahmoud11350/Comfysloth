@@ -1,8 +1,9 @@
 import customFetch from "../utils/customFetch";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Heading from "../components/Heading";
 import ProductInfo from "../components/ProductInfo";
 import ProductImage from "../components/ProductImage";
+import Footer from "../components/Footer";
 export const loader = async ({ params }) => {
   const { id } = params;
 
@@ -16,10 +17,18 @@ export const loader = async ({ params }) => {
 const Product = () => {
   const { product } = useLoaderData();
   return (
-    <section>
+    <section className="">
       <Heading heading={product.name} />
-      <ProductImage product={product} />
-      <ProductInfo product={product} />
+      <Link
+        to={"/products"}
+        className="p-4 bg-mainColor m-4 block w-fit rounded-lg font-bold text-white uppercase hover:bg-mainColor/70 transition-colors "
+      >
+        back to prodcts
+      </Link>
+      <div className="grid grid-cols-1 md:grid-cols-2   ">
+        <ProductImage product={product} />
+        <ProductInfo product={product} />
+      </div>
     </section>
   );
 };
