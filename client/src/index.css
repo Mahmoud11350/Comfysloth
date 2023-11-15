@@ -15,4 +15,19 @@
   .afterLine::after {
     @apply absolute -bottom-4 w-[150px] h-[3px] content-[''] bg-mainColor left-1/2 -translate-x-1/2;
   }
+  .overlay {
+    @apply relative overflow-hidden;
+  }
+  .overlay::after {
+    @apply content-[""] absolute left-0 top-full w-full h-full bg-mainColor/60 rounded-lg;
+  }
+  .overlay:hover::after {
+    @apply top-0 transition-all;
+  }
+  .center {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden;
+  }
+  .overlay:hover .center {
+    @apply block;
+  }
 }

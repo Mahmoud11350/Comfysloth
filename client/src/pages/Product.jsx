@@ -23,7 +23,7 @@ const Product = () => {
         to={"/products"}
         className="p-4 bg-mainColor m-4 block w-fit rounded-lg font-bold text-white uppercase hover:bg-mainColor/70 transition-colors "
       >
-        back to prodcts
+        back to products
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-2   ">
         <ProductImage product={product} />
