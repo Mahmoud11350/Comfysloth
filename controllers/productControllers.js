@@ -3,7 +3,26 @@ import Product from "../models/Product.js";
 import CUSTOMERROR from "../errors/CUSTOMERROR.js";
 
 export const getAllProducts = async (req, res) => {
-  const products = await Product.find();
+  let { search, category, company, color } = req.query;
+  let queryObject = {};
+
+  if (search) {
+    queryObject.$or = [
+      { name: { $regex: search, $options: "i" } },
+      { category: { $regex: search, $options: "i" } },
+      { category: { $regex: search, $options: "i" } },
+    ];
+  }
+  if (category && category !== "all") {
+    queryObject.category = category;
+  }
+  if (company && company !== "all") {
+    queryObject.company = company;
+  }
+  if (color && color !== "all") {
+    queryObject.colors = color;
+  }
+  const products = await Product.find(queryObject);
   res.status(StatusCodes.OK).json({ numOfProducts: products.length, products });
 };
 export const getProduct = async (req, res) => {

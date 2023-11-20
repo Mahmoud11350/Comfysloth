@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+// import queryClient from "../utils/queryClient";
 import {
   About,
   Cart,
@@ -13,7 +14,7 @@ import {
 
 import { loader as featuredLoader } from "../pages/Landing";
 import { loader as productLoader } from "../pages/Product";
-import { loader as productsLoader } from "../pages/Products";
+// import { loader as productsLoader } from "../pages/Products";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
       {
         path: "products",
         element: <Products />,
-        loader: productsLoader,
+        // loader: productsLoader(queryClient),
       },
       {
         path: "product/:id",

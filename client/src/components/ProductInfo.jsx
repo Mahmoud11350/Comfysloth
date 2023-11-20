@@ -1,15 +1,21 @@
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useHomeContext } from "../pages/HomeLayout";
+import { useState } from "react";
 const ProductInfo = ({ product }) => {
+  const { handlePlusQuantity, handleMinusQuantity, addToCart } =
+    useHomeContext();
   const {
-    productQuantatiy,
-    handlePlusQuantity,
-    handleMinusQuantity,
-    addToCart,
-  } = useHomeContext();
-  console.log(productQuantatiy);
-  const { name, price, description, shipping, company, colors } = product;
+    name,
+    price,
+    description,
+    shipping,
+    company,
+    colors,
+    productInCart,
+    productQuantity,
+  } = product;
+
   const reviews = Array.from({ length: 5 }, (_, index) => index);
   return (
     <div className="p-4 capitalize">
@@ -54,7 +60,7 @@ const ProductInfo = ({ product }) => {
         >
           -
         </button>
-        <span className="text-4xl font-bold">{productQuantatiy}</span>
+        <span className="text-4xl font-bold">{productQuantity}</span>
         <button
           className="text-4xl text-slate-950  font-bold"
           onClick={handlePlusQuantity}
@@ -62,10 +68,14 @@ const ProductInfo = ({ product }) => {
           +
         </button>
       </div>
+
       <Link
         to={"/cart"}
-        className="mt-8 m-auto block bg-mainColor w-fit py-2 px-4 text-white font-bold  tracking-wider rounded"
-        onClick={() => addToCart(product)}
+        disabled
+        className={`${
+          productInCart ? "pointer-events-none" : ""
+        } mt-8 m-auto block bg-mainColor w-fit  py-2 px-4 text-white font-bold  tracking-wider rounded`}
+        // onClick={() => addToCart({ product,  })}
       >
         Add To Cart
       </Link>

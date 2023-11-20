@@ -7,11 +7,19 @@ const app = express();
 
 // routes
 import productRoutes from "./routes/productRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 // middlewares
 import errorHandler from "./middlewares/errorHandler.js";
+import cookieParser from "cookie-parser";
 
+// pre middlewares
+app.use(express.json());
+app.use(cookieParser(process.env.COOKIE_SECRET));
+
+// routes
 app.use("/api/v1/products", productRoutes);
+app.use("/api/v1/auth", authRoutes);
 
 // post middlewares
 app.use(errorHandler);

@@ -9,7 +9,13 @@ const errorHandler = (err, req, res, next) => {
     customError.customMsg = "please provide valid product id";
     customError.customCode = StatusCodes.BAD_REQUEST;
   }
-  //   return res.send(err);
+  if (err && err.name === "ValidationError") {
+    customError.customMsg = Object.keys(err.errors)
+      .map((error) => err.errors[error].message)
+      .join(" & ");
+    customError.customCode = StatusCodes.BAD_REQUEST;
+  }
+  // return res.send(err);
   return res
     .status(customError.customCode)
     .json({ message: customError.customMsg });

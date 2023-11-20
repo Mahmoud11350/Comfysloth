@@ -46,6 +46,14 @@ const productSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  productInCart: {
+    type: Boolean,
+    default: false,
+  },
+  productQuantity: {
+    type: Number,
+    default: 0,
+  },
 });
 
 export default model("Product", productSchema);

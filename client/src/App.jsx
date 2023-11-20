@@ -7,7 +7,7 @@ import queryClient from "../src/utils/queryClient";
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router}></RouterProvider>;
+      <RouterProvider router={router}></RouterProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>
   );

@@ -9,7 +9,10 @@ const HomeLayout = () => {
   const toggleMobileNav = () => setMobileNav(!mobileNav);
   const [cart, setCart] = useState([]);
   const [productQuantatiy, setProductQuantity] = useState(1);
-  const addToCart = (product) => setCart((cart) => [...cart]);
+
+  const addToCart = ({ product, productQuantatiy }) =>
+    setCart((cart) => [...cart, { ...product, productQuantatiy }]);
+
   const handlePlusQuantity = () => {
     setProductQuantity((quantatity) => ++quantatity);
     if (productQuantatiy >= 8) return setProductQuantity(8);
