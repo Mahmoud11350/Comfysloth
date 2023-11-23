@@ -43,6 +43,5 @@ export const logoutUser = async (req, res) => {
   res.cookie("token", "logout", {
     expires: new Date(Date.now()),
   });
-
   res.status(StatusCodes.OK).send("logout user");
 };

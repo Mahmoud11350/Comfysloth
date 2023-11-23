@@ -8,6 +8,7 @@ const app = express();
 // routes
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 // middlewares
 import errorHandler from "./middlewares/errorHandler.js";
@@ -20,6 +21,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 // routes
 app.use("/api/v1/products", productRoutes);
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/users", userRoutes);
 
 // post middlewares
 app.use(errorHandler);

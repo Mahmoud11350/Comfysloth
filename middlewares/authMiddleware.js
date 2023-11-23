@@ -1,6 +1,6 @@
-import CUSTOMERROR from "../errors/CUSTOMERROR";
+import CUSTOMERROR from "../errors/CUSTOMERROR.js";
 import { StatusCodes } from "http-status-codes";
-import { verifyToken } from "../utils/createToken";
+import { verifyToken } from "../utils/createToken.js";
 
 const authMiddleware = async (req, res, next) => {
   const token = req.signedCookies.token;
@@ -9,6 +9,7 @@ const authMiddleware = async (req, res, next) => {
   }
   try {
     const user = await verifyToken({ token });
+
     req.user = user;
     next();
   } catch (error) {

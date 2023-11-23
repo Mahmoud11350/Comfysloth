@@ -19,6 +19,6 @@ export const verifyToken = ({ token }) =>
 export const attachCookieToRes = ({ res, token }) =>
   res.cookie("token", token, {
     signed: true,
-    secure: true,
-    httpOnly: true,
+    // secure: true,
+    // httpOnly: true,
   });

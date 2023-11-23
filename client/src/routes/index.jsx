@@ -15,12 +15,16 @@ import {
 import { loader as featuredLoader } from "../pages/Landing";
 import { loader as productLoader } from "../pages/Product";
 // import { loader as productsLoader } from "../pages/Products";
+import { action as loginAction } from "../pages/Login";
+import { action as registerAction } from "../pages/Register";
+import { loader as currentUserLoader } from "../pages/HomeLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
     errorElement: <ErrorPage />,
+    loader: currentUserLoader,
     children: [
       {
         index: true,
@@ -49,10 +53,12 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+        action: loginAction,
       },
       {
         path: "register",
         element: <Register />,
+        action: registerAction,
       },
     ],
   },
